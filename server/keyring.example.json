@@ -1,0 +1,11 @@
+{
+  "trust_domain": "dev.local",
+  "active_key_id": "dev-key-1",
+  "keys": {
+    "dev-key-1": {
+      "public_key_pem": "-----BEGIN PUBLIC KEY-----\\n...\\n-----END PUBLIC KEY-----\\n",
+      "private_key_pem": "-----BEGIN PRIVATE KEY-----\\n...\\n-----END PRIVATE KEY-----\\n",
+      "status": "active"
+    }
+  }
+}

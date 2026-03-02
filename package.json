@@ -1,0 +1,19 @@
+{
+  "name": "action-receipt",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "AI Action Receipt accountability layer",
+  "workspaces": [
+    "sdk",
+    "server",
+    "examples"
+  ],
+  "scripts": {
+    "dev": "node server/src/http.js",
+    "api:start": "node server/src/http.js",
+    "api:smoke": "node examples/api-smoke.mjs",
+    "demo": "node examples/openclaw-demo.mjs",
+    "demo:tamper": "node examples/tamper-demo.mjs"
+  }
+}

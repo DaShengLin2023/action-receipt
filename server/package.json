@@ -1,0 +1,13 @@
+{
+  "name": "@action-receipt/server",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "src/index.js",
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "canonicalize": "^2.1.0",
+    "express": "^4.21.2",
+    "sql.js": "^1.13.0"
+  }
+}

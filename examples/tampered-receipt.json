@@ -1,0 +1,30 @@
+{
+  "receipt": {
+    "receipt_id": "4ce995ea-5c26-4db3-ab2e-f8f13401479c",
+    "schema_version": "0.1.0",
+    "trust_domain": "dev.local",
+    "observed_at": "2026-03-02T00:00:00.000Z",
+    "issued_at": "2026-03-02T00:00:05.000Z",
+    "agent_id": "openclaw-agent-01",
+    "action": {
+      "tool": "send_email",
+      "type": "external_communication",
+      "input_hash": "1f4f2bc6f72d7f6f963aa75f17dd8dc4c95fc5c918f9316d4a3588f8d84f8dcb",
+      "risk_class": "critical",
+      "creates_commitment": false,
+      "asset_involved": false
+    },
+    "environment": {
+      "sdk_version": "0.1.0",
+      "model": "gpt-4.1-mini"
+    },
+    "integrity": {
+      "canonicalization": "JCS-RFC8785",
+      "hash_alg": "SHA-256",
+      "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "sig_alg": "Ed25519",
+      "key_id": "dev-key-1",
+      "signature": "ZmFrZS1zaWduYXR1cmU="
+    }
+  }
+}

@@ -1,0 +1,7 @@
+node_modules/
+*.log
+coverage/
+dist/
+examples/out/
+server/keyring.json
+server/data/

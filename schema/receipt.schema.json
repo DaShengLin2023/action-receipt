@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://action-receipt.dev/schema/receipt.schema.json",
+  "title": "AI Action Receipt Schema v0.1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "receipt_id",
+    "schema_version",
+    "trust_domain",
+    "observed_at",
+    "issued_at",
+    "agent_id",
+    "action",
+    "environment",
+    "integrity"
+  ],
+  "properties": {
+    "receipt_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "schema_version": {
+      "type": "string",
+      "const": "0.1.0"
+    },
+    "trust_domain": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "issued_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "agent_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tool",
+        "type",
+        "input_hash",
+        "risk_class",
+        "creates_commitment",
+        "asset_involved"
+      ],
+      "properties": {
+        "tool": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "information_access",
+            "external_communication",
+            "system_mutation",
+            "asset_transfer",
+            "commitment_creation",
+            "content_generation",
+            "other"
+          ]
+        },
+        "input_hash": {
+          "$ref": "#/$defs/sha256Hex"
+        },
+        "risk_class": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "critical"
+          ]
+        },
+        "creates_commitment": {
+          "type": "boolean"
+        },
+        "asset_involved": {
+          "type": "boolean"
+        }
+      }
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sdk_version",
+        "model"
+      ],
+      "properties": {
+        "sdk_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "model": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "canonicalization",
+        "hash_alg",
+        "content_hash",
+        "sig_alg",
+        "key_id",
+        "signature"
+      ],
+      "properties": {
+        "canonicalization": {
+          "type": "string",
+          "enum": [
+            "JCS-RFC8785"
+          ]
+        },
+        "hash_alg": {
+          "type": "string",
+          "enum": [
+            "SHA-256"
+          ]
+        },
+        "content_hash": {
+          "$ref": "#/$defs/sha256Hex"
+        },
+        "sig_alg": {
+          "type": "string",
+          "enum": [
+            "Ed25519",
+            "HMAC-SHA256"
+          ]
+        },
+        "key_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "signature": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  },
+  "$defs": {
+    "sha256Hex": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}
